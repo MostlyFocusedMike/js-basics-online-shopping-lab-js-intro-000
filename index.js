@@ -55,15 +55,13 @@ function total() {
 }
 
 function removeFromCart(item) {
-  let cartSize = cart.length, i;
-  
-  for (i=0;i<cart.length;i++) { 
-    if (cart[i].itemName == item) {
-      cart.splice(i,1);
-      return;
-    }
+  var indexOfItemToRemove = cart.indexOf(item);
+
+  cart.splice(indexOfItemToRemove,1);
+  if (indexOfItemToRemove == -1) {
+    return 'That item is not in your cart.';
   }
-  return 'That item is not in your cart.'
+  return cart;
 }
 
 function placeOrder(cardNumber) {
